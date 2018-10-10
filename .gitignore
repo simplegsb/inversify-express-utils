@@ -39,7 +39,6 @@ bundled
 
 typings
 .typingsrc
-dts
 dist
 es
 
