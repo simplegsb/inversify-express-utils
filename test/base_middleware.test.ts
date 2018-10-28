@@ -162,7 +162,7 @@ describe("BaseMiddleware", () => {
             ) {
                 this.bind<string>(TYPES.TraceIdValue)
                     .toConstantValue(`${ req.header(TRACE_HEADER) }`);
-                setTimeout(next, 0);
+                setTimeout(next, someTimeBetween(0, 500));
             }
         }
 
