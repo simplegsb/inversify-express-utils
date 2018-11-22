@@ -160,9 +160,11 @@ describe("BaseMiddleware", () => {
                 res: express.Response,
                 next: express.NextFunction
             ) {
-                this.bind<string>(TYPES.TraceIdValue)
-                    .toConstantValue(`${ req.header(TRACE_HEADER) }`);
-                setTimeout(next, someTimeBetween(0, 500));
+                setTimeout(() => {
+                    this.bind<string>(TYPES.TraceIdValue)
+                        .toConstantValue(`${ req.header(TRACE_HEADER) }`);
+                    next();
+                }, someTimeBetween(0, 500));
             }
         }
 
